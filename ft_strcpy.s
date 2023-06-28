@@ -3,6 +3,7 @@ bits 64
 section .text
 global ft_strcpy
 
+; char *ft_strcpy(char *dest, const char *src);
 ft_strcpy:
 	xor rax, rax ; i = 0
 .loop:

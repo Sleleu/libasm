@@ -3,6 +3,7 @@ bits 64
 section .text
 global ft_strlen
 
+; size_t strlen(const char *str);
 ft_strlen:
 	xor rax, rax ; set rax to zero
 	
