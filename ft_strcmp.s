@@ -8,19 +8,19 @@ ft_strcmp:
 	xor rax, rax
 
 .loop:
-	mov bl, [rdi + rax] ; move byte of s1
-	mov cl, [rsi + rax] ; move byte of s2
-	cmp bl, cl ; compare two bytes
+	movzx rbx, byte [rdi + rax] ; move byte of s1
+	movzx rcx, byte [rsi + rax] ; move byte of s2
+	cmp rbx, rcx ; compare two bytes
 	jne .diff
 	
-	cmp bl, 0 ; bl and cl are equal, if bl == 0 then str are equals
+	cmp rbx, 0 ; rbx and rxc are equal, if rbx == 0 then str are equals
 	je .return
 	inc rax
 	jmp .loop
 
 .diff:
-	sub bl, cl ; substract value of cl in bl
-	movsx rax, bl ; move with sign extension
+	sub rbx, rcx ; substract value of rbx in rcx
+	mov rax, rbx
 	ret
 
 .return:
